@@ -68,6 +68,8 @@ apply plugin: 'com.android.library'
  */
 def findNodeModulePath(baseDir, packageName) {
     def basePath = baseDir.toPath().normalize()
+    basePath = basePath.getParent().getParent().getParent()
+    basePath = Paths.get(basePath.toString(),"RN")
     // Node's module resolution algorithm searches up to the root directory,
     // after which the base path will be null
     while (basePath) {
